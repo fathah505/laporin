@@ -39,14 +39,17 @@
         .user-avatar {
             width: 45px;
             height: 45px;
-            background: linear-gradient(135deg, #4fb3bf 0%, #2d5a7b 100%);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-            font-size: 18px;
+            overflow: hidden;
+            border: 2px solid #e0e0e0;
+            flex-shrink: 0;
+        }
+        .user-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #f5f7fa;
+            padding: 4px;
         }
         .user-details { display: flex; flex-direction: column; }
         .user-name { font-weight: 600; color: #333; }
@@ -186,6 +189,7 @@
         .status-menunggu { background: rgba(244,67,54,0.1); color: #f44336; }
         .status-proses { background: rgba(255,152,0,0.1); color: #ff9800; }
         .status-selesai { background: rgba(76,175,80,0.1); color: #4caf50; }
+        .status-ditolak { background: rgba(244,67,54,0.1); color: #f44336; }
 
         .action-btn {
             padding: 8px 12px;
@@ -222,7 +226,9 @@
                     <span class="user-name">{{ Auth::user()->name }}</span>
                     <span class="user-role">{{ ucfirst(Auth::user()->level) }}</span>
                 </div>
-                <div class="user-avatar">{{ strtoupper(substr(Auth::user()->name, 0, 2)) }}</div>
+                <div class="user-avatar">
+                    <img src="{{ asset('images/logo.png') }}" alt="Logo">
+                </div>
             </div>
         </div>
 
@@ -253,6 +259,13 @@
                 <div class="stat-info">
                     <h3>{{ $selesai }}</h3>
                     <p>Selesai</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon red"><i data-lucide="x-circle"></i></div>
+                <div class="stat-info">
+                    <h3>{{ $ditolak ?? 0 }}</h3>
+                    <p>Ditolak</p>
                 </div>
             </div>
         </div>
@@ -346,9 +359,11 @@
                             @if($item->status == '0')
                                 <span class="status-badge status-menunggu">Menunggu</span>
                             @elseif($item->status == '1')
-                                <span class="status-badge status-proses">Proses</span>
-                            @else
+                                <span class="status-badge status-proses">Diproses</span>
+                            @elseif($item->status == '2')
                                 <span class="status-badge status-selesai">Selesai</span>
+                            @else
+                                <span class="status-badge status-ditolak">Ditolak</span>
                             @endif
                         </td>
                         <td>

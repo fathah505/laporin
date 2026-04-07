@@ -5,21 +5,18 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Models\Pengaduan;
+use App\Models\User;
+use App\Models\Kategori;
 
 // Halaman Welcome/Landing Page
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', [
+        'totalSelesai'   => Pengaduan::where('status', 2)->count(),
+        'totalSiswa'     => User::where('level', 'siswa')->count(),
+        'totalPengaduan' => Pengaduan::count(),
+        'totalKategori'  => Kategori::count(),
+    ]);
 })->name('welcome');
 
 // Route Dashboard - Redirect otomatis berdasarkan level user
@@ -33,11 +30,7 @@ Route::middleware(['auth'])->get('/dashboard', function () {
     }
 })->name('dashboard');
 
-/*
-|--------------------------------------------------------------------------
-| Admin Routes
-|--------------------------------------------------------------------------
-*/
+
 Route::middleware(['auth', 'ceklevel:admin'])->prefix('admin')->group(function () {
     // Dashboard
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
@@ -46,6 +39,9 @@ Route::middleware(['auth', 'ceklevel:admin'])->prefix('admin')->group(function (
     Route::get('/pengaduan', [AdminController::class, 'pengaduan'])->name('admin.pengaduan');
     Route::get('/pengaduan/{id}', [AdminController::class, 'showPengaduan'])->name('admin.pengaduan.show');
     Route::post('/pengaduan/{id}/update-status', [AdminController::class, 'updateStatus'])->name('admin.pengaduan.update-status');
+    Route::post('/pengaduan/{id}/terima', [AdminController::class, 'terimaPengaduan'])->name('admin.pengaduan.terima');
+    Route::post('/pengaduan/{id}/tolak', [AdminController::class, 'tolakPengaduan'])->name('admin.pengaduan.tolak');
+    Route::post('/pengaduan/{id}/selesai', [AdminController::class, 'selesaikanPengaduan'])->name('admin.pengaduan.selesai');
     
     // Tanggapan
     Route::post('/tanggapan/store', [AdminController::class, 'storeTanggapan'])->name('admin.tanggapan.store');
@@ -67,11 +63,7 @@ Route::middleware(['auth', 'ceklevel:admin'])->prefix('admin')->group(function (
     Route::get('/laporan/export', [AdminController::class, 'exportLaporan'])->name('admin.laporan.export');
 });
 
-/*
-|--------------------------------------------------------------------------
-| Siswa Routes
-|--------------------------------------------------------------------------
-*/
+
 Route::middleware(['auth', 'ceklevel:siswa'])->prefix('siswa')->group(function () {
     // Dashboard
     Route::get('/dashboard', [SiswaController::class, 'index'])->name('siswa.dashboard');
@@ -86,20 +78,11 @@ Route::middleware(['auth', 'ceklevel:siswa'])->prefix('siswa')->group(function (
     Route::delete('/pengaduan/{id}', [SiswaController::class, 'deletePengaduan'])->name('siswa.pengaduan.delete');
 });
 
-/*
-|--------------------------------------------------------------------------
-| Profile Routes (Hanya untuk Admin)
-|--------------------------------------------------------------------------
-*/
 Route::middleware(['auth', 'ceklevel:admin'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-/*
-|--------------------------------------------------------------------------
-| Authentication Routes (Tanpa Register)
-|--------------------------------------------------------------------------
-*/
+
 require __DIR__.'/auth.php';

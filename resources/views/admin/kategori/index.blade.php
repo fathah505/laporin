@@ -173,7 +173,7 @@
                 <tbody>
                     @forelse($kategoris as $kategori)
                     <tr>
-                        <td>#{{ $kategori->id }}</td>
+                        <td>{{ $loop->iteration }}</td>
                         <td><strong>{{ $kategori->nama_kategori }}</strong></td>
                         <td><span class="badge">{{ $kategori->pengaduan_count }} pengaduan</span></td>
                         <td>
@@ -255,5 +255,15 @@
         }
     </script>
     <script>lucide.createIcons();</script>
+    <script>
+        // Auto-hide alert setelah 4 detik
+        setTimeout(function() {
+            document.querySelectorAll('.alert').forEach(function(el) {
+                el.style.transition = 'opacity 0.5s ease';
+                el.style.opacity = '0';
+                setTimeout(function() { el.style.display = 'none'; }, 500);
+            });
+        }, 4000);
+    </script>
 </body>
 </html>

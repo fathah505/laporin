@@ -15,25 +15,25 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        // Ambil pengaduan milik siswa yang login
         $pengaduan = Pengaduan::with(['kategori', 'tanggapan'])
             ->where('user_id', Auth::id())
             ->latest()
             ->take(5)
             ->get();
-        
-        // Hitung statistik pengaduan siswa
+
         $totalPengaduan = Pengaduan::where('user_id', Auth::id())->count();
-        $pending = Pengaduan::where('user_id', Auth::id())->where('status', '0')->count();
-        $proses = Pengaduan::where('user_id', Auth::id())->where('status', '1')->count();
-        $selesai = Pengaduan::where('user_id', Auth::id())->where('status', '2')->count();
-        
+        $pending        = Pengaduan::where('user_id', Auth::id())->where('status', '0')->count();
+        $proses         = Pengaduan::where('user_id', Auth::id())->where('status', '1')->count();
+        $selesai        = Pengaduan::where('user_id', Auth::id())->where('status', '2')->count();
+        $ditolak        = Pengaduan::where('user_id', Auth::id())->where('status', '3')->count(); 
+
         return view('siswa.dashboard', compact(
             'pengaduan',
             'totalPengaduan',
             'pending',
             'proses',
-            'selesai'
+            'selesai',
+            'ditolak'  
         ));
     }
 

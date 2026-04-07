@@ -20,5 +20,5 @@ class CekLevel
         }
 
         return redirect('/login')->with('error', 'Anda tidak memiliki akses ke halaman ini!');
-    }
+    } 
 }

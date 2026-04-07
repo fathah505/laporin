@@ -214,7 +214,7 @@
                     <div class="timeline-date">{{ \Carbon\Carbon::parse($pengaduan->tgl_pengaduan)->format('d M Y, H:i') }}</div>
                     <div class="timeline-content">
                         <strong>Pengaduan dibuat</strong><br>
-                        Pengaduan Anda telah berhasil dikirim dan menunggu verifikasi dari petugas.
+                        Pengaduan Anda telah berhasil dikirim dan menunggu verifikasi dari admin.
                     </div>
                 </div>
 
@@ -227,7 +227,7 @@
                     </div>
                     <div class="timeline-content">
                         <strong>Pengaduan sedang diproses</strong><br>
-                        Petugas sedang menindaklanjuti pengaduan Anda.
+                        Admin sedang menindaklanjuti pengaduan Anda.
                     </div>
                 </div>
                 @endif
@@ -250,12 +250,12 @@
 
         <!-- Tanggapan Petugas -->
         <div class="card">
-            <h3><i data-lucide="message-square"></i> Tanggapan Petugas</h3>
+            <h3><i data-lucide="message-square"></i> Tanggapan Admin</h3>
             @if($pengaduan->tanggapan)
             <div class="tanggapan-card">
                 <div class="tanggapan-meta">
                     <i data-lucide="user-circle"></i>
-                    <strong>{{ $pengaduan->tanggapan->petugas->name }}</strong>
+                    <strong>{{ $pengaduan->tanggapan->admin->name ?? 'Admin' }}</strong>
                     <span>&bull;</span>
                     <span>{{ \Carbon\Carbon::parse($pengaduan->tanggapan->tgl_tanggapan)->format('d F Y, H:i') }} WIB</span>
                 </div>
@@ -265,7 +265,7 @@
             <div class="empty-tanggapan">
                 <i data-lucide="clock"></i>
                 <p style="font-weight: 600; color: #666; margin-bottom: 5px;">Belum Ada Tanggapan</p>
-                <p style="font-size: 14px; color: #999;">Pengaduan Anda sedang menunggu tanggapan dari petugas</p>
+                <p style="font-size: 14px; color: #999;">Pengaduan Anda sedang menunggu tanggapan dari admin</p>
             </div>
             @endif
         </div>

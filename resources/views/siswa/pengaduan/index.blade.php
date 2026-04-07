@@ -85,6 +85,7 @@
         .status-menunggu { background: rgba(244,67,54,0.1); color: #f44336; }
         .status-proses { background: rgba(255,152,0,0.1); color: #ff9800; }
         .status-selesai { background: rgba(76,175,80,0.1); color: #4caf50; }
+        .status-ditolak { background: rgba(244,67,54,0.1); color: #f44336; }
 
         .action-btn {
             padding: 8px 12px;
@@ -143,6 +144,7 @@
                     <option value="0" {{ request('status') == '0' ? 'selected' : '' }}>Menunggu</option>
                     <option value="1" {{ request('status') == '1' ? 'selected' : '' }}>Proses</option>
                     <option value="2" {{ request('status') == '2' ? 'selected' : '' }}>Selesai</option>
+                    <option value="3" {{ request('status') == '3' ? 'selected' : '' }}>Ditolak</option>
                 </select>
                 <select name="kategori_id">
                     <option value="">Semua Kategori</option>
@@ -181,9 +183,11 @@
                             @if($item->status == '0')
                                 <span class="status-badge status-menunggu">Menunggu</span>
                             @elseif($item->status == '1')
-                                <span class="status-badge status-proses">Proses</span>
-                            @else
+                                <span class="status-badge status-proses">Diproses</span>
+                            @elseif($item->status == '2')
                                 <span class="status-badge status-selesai">Selesai</span>
+                            @else
+                                <span class="status-badge status-ditolak">Ditolak</span>
                             @endif
                         </td>
                         <td>
