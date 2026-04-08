@@ -16,3 +16,39 @@ indent_size = 2
 
 [docker-compose.yml]
 indent_size = 4
+
+# composer install
+# npm install
+# copy .env.example .env
+# php artisan key:generate
+# (ubah db_database jadi pengaduan_sekolah)
+
+# composer require laravel/breeze --dev
+# php artisan breeze:install blade
+# (edit Http/Requests/Auth/LoginRequest.php)
+
+# php artisan make:model Category -m
+# php artisan make:model Aspiration -m
+# php artisan make:model Feedback -m
+
+# php artisan make:migration change_category_field_from_enum_to_string
+
+# php artisan make:controller Admin/AdminController
+# php artisan make:controller Admin/AspirasiController
+# php artisan make:controller Admin/KategoriController
+# php artisan make:controller Admin/SiswaController
+# php artisan make:controller Siswa/AspirasiSiswaController
+# php artisan make:controller DashboardController
+
+# php artisan make:middleware RoleMiddleware
+
+# php artisan storage:link
+
+# php artisan migrate:fresh --seed
+# npm run dev
+# php artisan serve
+
+# git config --global user.name "AldiBelajarNgoding"
+# git config --global user.email "fahrialdiansyah2212@gmail.com"
+
+# git clone https://github.com/AldiBelajarNgoding/pengaduan-sekolah.git
