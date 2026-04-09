@@ -222,10 +222,10 @@
                     <label class="remember-me">
                         <input type="checkbox" id="remember" name="remember">
                         <span>Ingat Saya</span>
-                    </label>
+                    {{-- </label>
                     @if (Route::has('password.request'))
                         <a href="{{ route('password.request') }}" class="forgot-password">Lupa Password?</a>
-                    @endif
+                    @endif --}}
                 </div>
 
                 <button type="submit" class="login-button">Masuk</button>

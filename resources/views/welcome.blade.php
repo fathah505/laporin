@@ -36,9 +36,9 @@
             padding: 14px 0;
         }
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 30px;
+            padding: 0 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -97,7 +97,7 @@
         /* ── Hero ── */
         .hero {
             background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
-            padding: 150px 30px 110px;
+            padding: 150px 40px 110px;
             color: white;
             text-align: center;
             position: relative;
@@ -121,7 +121,7 @@
             background: rgba(255,255,255,0.04);
             pointer-events: none;
         }
-        .hero-content { max-width: 780px; margin: 0 auto; position: relative; z-index: 1; }
+        .hero-content { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -137,7 +137,7 @@
         }
         .hero-badge i[data-lucide] { width: 14px; height: 14px; }
         .hero h1 {
-            font-size: 52px;
+            font-size: 56px;
             margin-bottom: 22px;
             font-weight: 800;
             line-height: 1.15;
@@ -148,7 +148,7 @@
             margin-bottom: 44px;
             opacity: 0.92;
             line-height: 1.7;
-            max-width: 620px;
+            max-width: 660px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -186,15 +186,21 @@
         .btn-hero-secondary i[data-lucide] { width: 17px; height: 17px; }
         .btn-hero-secondary:hover { background: white; color: var(--primary); border-color: white; }
 
+        /* ── Section wrapper ── */
+        .section-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
         /* ── Features ── */
-        .features { padding: 90px 30px; background: var(--light); }
-        .features-container { max-width: 1200px; margin: 0 auto; }
+        .features { padding: 90px 0; background: var(--light); }
         .section-title { text-align: center; margin-bottom: 60px; }
         .section-title h2 { font-size: 36px; color: var(--primary); margin-bottom: 12px; font-weight: 800; letter-spacing: -0.5px; }
         .section-title p { font-size: 17px; color: var(--text-muted); }
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 28px;
         }
         .feature-card {
@@ -225,11 +231,10 @@
         .feature-card p { color: var(--text-muted); line-height: 1.7; font-size: 15px; }
 
         /* ── How It Works ── */
-        .how-it-works { padding: 90px 30px; background: white; }
-        .steps-container { max-width: 1100px; margin: 0 auto; }
+        .how-it-works { padding: 90px 0; background: white; }
         .steps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 30px;
             margin-top: 55px;
             position: relative;
@@ -255,14 +260,15 @@
         /* ── Stats ── */
         .stats {
             background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
-            padding: 70px 30px;
+            padding: 70px 0;
             color: white;
         }
         .stats-container {
-            max-width: 1100px;
+            max-width: 1400px;
             margin: 0 auto;
+            padding: 0 40px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 40px;
             text-align: center;
         }
@@ -282,8 +288,8 @@
         .stat-item p { font-size: 16px; opacity: 0.88; font-weight: 500; }
 
         /* ── CTA ── */
-        .cta { padding: 90px 30px; background: var(--light); text-align: center; }
-        .cta-content { max-width: 680px; margin: 0 auto; }
+        .cta { padding: 90px 40px; background: var(--light); text-align: center; }
+        .cta-content { max-width: 720px; margin: 0 auto; }
         .cta h2 { font-size: 36px; color: var(--primary); margin-bottom: 18px; font-weight: 800; letter-spacing: -0.5px; }
         .cta p { font-size: 17px; color: var(--text-muted); margin-bottom: 40px; line-height: 1.7; }
         .btn-cta {
@@ -304,13 +310,14 @@
         .btn-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(79,179,191,0.5); }
 
         /* ── Footer ── */
-        .footer { background: var(--primary); color: white; padding: 60px 30px 28px; }
+        .footer { background: var(--primary); color: white; padding: 60px 0 28px; }
         .footer-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+            padding: 0 40px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 40px;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 48px;
             margin-bottom: 40px;
         }
         .footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
@@ -342,10 +349,10 @@
         }
         .footer-contact-item i[data-lucide] { width: 15px; height: 15px; flex-shrink: 0; opacity: 0.7; }
         .footer-bottom {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+            padding: 22px 40px 0;
             text-align: center;
-            padding-top: 22px;
             border-top: 1px solid rgba(255,255,255,0.15);
             font-size: 13px;
             color: rgba(255,255,255,0.6);
@@ -355,7 +362,25 @@
         .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
         .menu-toggle span { width: 24px; height: 2.5px; background: var(--primary); border-radius: 2px; transition: 0.3s; }
 
+        /* ── Responsive ── */
+
+        @media (max-width: 1200px) {
+            .features-grid { grid-template-columns: repeat(3, 1fr); }
+            .steps-grid { grid-template-columns: repeat(4, 1fr); }
+            .stats-container { grid-template-columns: repeat(4, 1fr); }
+            .footer-container { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 44px; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .steps-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-container { grid-template-columns: repeat(2, 1fr); }
+            .footer-container { grid-template-columns: repeat(2, 1fr); }
+        }
+
         @media (max-width: 768px) {
+            .nav-container { padding: 0 20px; }
             .nav-menu {
                 display: none;
                 position: absolute;
@@ -368,11 +393,44 @@
             }
             .nav-menu.active { display: flex; }
             .menu-toggle { display: flex; }
+
+            .hero { padding: 130px 20px 80px; }
             .hero h1 { font-size: 34px; }
             .hero p { font-size: 16px; }
             .hero-buttons { flex-direction: column; align-items: center; }
-            .section-title h2 { font-size: 28px; }
+
+            .section-inner { padding: 0 20px; }
+            .features { padding: 60px 0; }
+            .features-grid { grid-template-columns: 1fr; }
+
+            .how-it-works { padding: 60px 0; }
+            .steps-grid { grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 36px; }
+
+            .stats { padding: 50px 0; }
+            .stats-container {
+                padding: 0 20px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 28px;
+            }
             .stat-item h3 { font-size: 36px; }
+
+            .cta { padding: 60px 20px; }
+            .section-title h2 { font-size: 28px; }
+
+            .footer { padding: 50px 0 24px; }
+            .footer-container {
+                padding: 0 20px;
+                grid-template-columns: 1fr;
+                gap: 32px;
+                margin-bottom: 28px;
+            }
+            .footer-bottom { padding: 18px 20px 0; }
+        }
+
+        @media (max-width: 480px) {
+            .steps-grid { grid-template-columns: 1fr; }
+            .stats-container { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 28px; }
         }
     </style>
 </head>
@@ -424,7 +482,7 @@
 
     <!-- Features -->
     <section class="features" id="features">
-        <div class="features-container">
+        <div class="section-inner">
             <div class="section-title">
                 <h2>Fitur Unggulan</h2>
                 <p>Kemudahan dalam menyampaikan dan mengelola pengaduan</p>
@@ -436,9 +494,9 @@
                     <p>Interface yang sederhana dan intuitif memudahkan siswa untuk menyampaikan pengaduan dengan cepat dan tepat.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><i data-lucide="bell-ring"></i></div>
-                    <h3>Notifikasi Real-time</h3>
-                    <p>Dapatkan update langsung tentang status pengaduan Anda melalui sistem notifikasi terintegrasi.</p>
+                    <div class="feature-icon"><i data-lucide="camera"></i></div>
+                    <h3>Laporan Foto</h3>
+                    <p>Sertakan foto bukti kerusakan sarana langsung dari perangkat Anda untuk memperkuat laporan pengaduan.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><i data-lucide="activity"></i></div>
@@ -466,7 +524,7 @@
 
     <!-- How It Works -->
     <section class="how-it-works" id="how-it-works">
-        <div class="steps-container">
+        <div class="section-inner">
             <div class="section-title">
                 <h2>Cara Kerja</h2>
                 <p>Proses pengaduan yang sederhana dan transparan</p>
@@ -496,7 +554,7 @@
         </div>
     </section>
 
-    <!-- Stats — data dinamis dari controller -->
+    <!-- Stats -->
     <section class="stats">
         <div class="stats-container">
             <div class="stat-item">
@@ -564,7 +622,7 @@
             <div class="footer-section">
                 <h3>Kontak</h3>
                 <div class="footer-contact-item">
-                    <i data-lucide="mail"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b7ded9d1d8f7dbd6c7d8c5ded999c4d4df99ded3">[email&#160;protected]</a>
+                    <i data-lucide="mail"></i> admin@lapor.in
                 </div>
                 <div class="footer-contact-item">
                     <i data-lucide="phone"></i> (021) 1234-5678
@@ -579,7 +637,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         function toggleMenu() {
             document.getElementById('navMenu').classList.toggle('active');
         }

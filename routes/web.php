@@ -6,9 +6,7 @@ use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('welcome');
 
 Route::middleware(['auth'])->get('/dashboard', function () {
     $user = Auth::user();
